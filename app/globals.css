@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #13052f;
+  min-height: 100vh;
+  color: white;
+}
+
+.scrape-html div {
+  @apply text-sm mb-2;
+}
+
+.scrape-html p {
+  @apply text-sm mb-2;
+}
+
+.scrape-html table {
+  @apply w-full border-collapse border-spacing-0 mb-5;
+}
+
+.scrape-html th {
+  @apply text-left p-2 border border-black;
+}
+
+.scrape-html td {
+  @apply p-2 border border-black;
+}
+
+.scrape-html a {
+  @apply text-blue-700
+}
+
+.scrape-html li {
+  @apply text-sm;
+}
+
+.scrape-html img {
+  @apply aspect-auto w-full;
+}
+
+.scrape-highlights ul {
+  @apply list-inside list-image-[url('/list-circle.png')] flex flex-col gap-2 pr-1
+}
+
+.search-bar-animation {
+  animation-name: waving;
+  animation-duration: 1.75s;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+}
+
+@keyframes waving {
+  from {
+    box-shadow: 0px 0px 3px 4px rgba(84, 9, 183, 0.40);
+  }
+  to {
+    box-shadow: 0px 0px 6px 9px rgba(84, 9, 183, 0.25);
+  }
+}
