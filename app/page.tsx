@@ -5,8 +5,13 @@ import NewsList from '@/components/news-list/NewsList';
 import SearchBar from '@/components/search-bar/SearchBar';
 import TrendingStocksList from '@/components/treding-stocks-list/TrendingStocksList';
 
-async function getBriefsData() {
+import {PrismaClient} from '@prisma/client';
 
+
+async function getBriefsData() {
+  // const prisma = new PrismaClient();
+  // console.log(prisma.articles.findFirst);
+  // return prisma.articles.findFirst;
   const query = JSON.stringify({
     "queryString": "(NOT source.id:sec-api AND symbols:*) AND publishedAt:[now-30d/d TO *]",
     "from": 0,
@@ -335,7 +340,7 @@ for (let index = 0; index < 30; index++) {
   );
 }
 
-export default async function Home() {
+export default async function Home() {  
   const briefsData = await getBriefsData();
   const prData = await getPRData();
   const wallStreetData = await getWallStreetData();
@@ -405,9 +410,9 @@ export default async function Home() {
             gap-9
           '
         >
-          <NewsList title='Press Releases' className='max-h-[424px] h-full' data={prData}/>
+          {/* <NewsList title='Press Releases' className='max-h-[424px] h-full' data={prData}/>
           <NewsList title='Wall Street Journal' className='max-h-[424px] h-full' data={wallStreetData}/>
-          <NewsList title='Bloomberg' className='max-h-[424px] h-full' data={bloombergData}/>
+          <NewsList title='Bloomberg' className='max-h-[424px] h-full' data={bloombergData}/> */}
         </div>
       </section>
       <section
@@ -424,7 +429,7 @@ export default async function Home() {
       >
         <div>
           {/* <NewsList title='IPO Filings' className='max-h-[424px] h-full'/> */}
-          <NewsList title='Earnings Call Transcript' className='max-h-[424px] h-full' data={earningCallData}/>
+          {/* <NewsList title='Earnings Call Transcript' className='max-h-[424px] h-full' data={earningCallData}/> */}
         </div>
         <div
           className='
@@ -433,7 +438,7 @@ export default async function Home() {
             gap-9
           '
         >
-          <NewsList title='FDA Approval' className='max-h-[424px] h-full' data={FDAApprovalData}/>
+          {/* <NewsList title='FDA Approval' className='max-h-[424px] h-full' data={FDAApprovalData}/> */}
         </div>
       </section>
       {/* Earnings Today & Trending stocks */}
@@ -469,7 +474,7 @@ export default async function Home() {
         '
       >
         <div>
-          <NewsList title='Reuters' className='max-h-[424px] h-full' data={reuterData}/>
+          {/* <NewsList title='Reuters' className='max-h-[424px] h-full' data={reuterData}/> */}
         </div>
         <div
           className='
@@ -478,7 +483,7 @@ export default async function Home() {
             gap-9
           '
         >
-          <NewsList title='CNBC' className='max-h-[424px] h-full' data={CNBCData}/>
+          {/* <NewsList title='CNBC' className='max-h-[424px] h-full' data={CNBCData}/> */}
         </div>
       </section>
       <section
@@ -494,7 +499,7 @@ export default async function Home() {
         '
       >
         <div>
-          <NewsList title='Barrons' className='max-h-[424px] h-full' data={barronData}/>
+          {/* <NewsList title='Barrons' className='max-h-[424px] h-full' data={barronData}/> */}
         </div>
         <div
           className='
@@ -503,7 +508,7 @@ export default async function Home() {
             gap-9
           '
         >
-          <NewsList title='S&P Global' className='max-h-[424px] h-full' data={SAndPGlobalData}/>
+          {/* <NewsList title='S&P Global' className='max-h-[424px] h-full' data={SAndPGlobalData}/> */}
         </div>
       </section>
       <section
@@ -521,7 +526,7 @@ export default async function Home() {
             2xl:px-32
           "
       >
-        <NewsList title='SEC Filings' className='max-h-[424px] h-full' data={SECFilingData} isCompanyName/>
+        {/* <NewsList title='SEC Filings' className='max-h-[424px] h-full' data={SECFilingData} isCompanyName/> */}
       </section>
     </main>
   )

@@ -3,9 +3,10 @@ import listIcon from "../../public/list-circle.png"
 
 async function fetchHighlightData() {
     const res = await fetch('https://static.newsfilter.io/landing-page/summary-of-briefs.html');
-
+    console.log(res);
     const data = await res.text();
-    
+    console.log('data,filter');
+    console.log(data);
     return data;
 }
 

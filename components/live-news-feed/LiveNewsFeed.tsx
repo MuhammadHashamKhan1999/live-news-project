@@ -47,6 +47,8 @@ const LiveNewsFeed = ({
                       console.error('Error fetching data:', res.status, res.statusText);
                     }
                   }
+
+                  console.log("Raheel", cacheArticles)
             } catch (error) {
               // console.error('Error fetching initial data:', error);
             } finally{
